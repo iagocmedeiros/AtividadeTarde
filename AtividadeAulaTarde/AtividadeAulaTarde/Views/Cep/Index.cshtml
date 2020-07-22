@@ -1,0 +1,57 @@
+﻿@Model
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Concultar CEP</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body class="container" style="padding-top:60px">
+    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+        <h1>Consulta e Cadastro de CEP</h1>
+    </div>
+
+    <div class="container">
+        <form asp-action="ConsultaCep" asp-controller="Cep">
+            <label>Digite o CEP</label>
+            <input type="text" id="txtCep" class="form-control col-4" name="txtCep" />
+            <input type="submit" value="Consultar/Consultar" class="btn btn-info" />
+        </form>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Cep</th>
+                    <th scope="col">Logradouro</th>
+                    <th scope="col">Complemento</th>
+                    <th scope="col">Bairro</th>
+                    <th scope="col">Localidade</th>
+                    <th scope="col">UF</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Cep</td>
+                        <td>@item.Logradouro</td>
+                        <td>@item.Complemento</td>
+                        <td>@item.Bairro</td>
+                        <td>@item.Localidade</td>
+                        <td>@item.Uf</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
